@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Química</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #resultado, #puntuacion {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Quiz de Química</h1>
+    <p id="pregunta"></p>
+    <div id="opciones"></div>
+    <p id="resultado"></p>
+    <button id="siguiente" onclick="siguientePregunta()" style="display:none;">Siguiente</button>
+    <p id="puntuacion"></p>
+</div>
+
+<script>
+    const preguntas = [
+        {
+            texto: '¿Cuál es el símbolo del elemento Oxígeno?',
+            opciones: ['H', 'O', 'N', 'C'],
+            respuestaCorrecta: 1
+        },
+        {
+            texto: '¿Cuál es el símbolo del elemento Hidrógeno?',
+            opciones: ['H', 'O', 'He', 'N'],
+            respuestaCorrecta: 0
+        },
+        {
+            texto: '¿Cuál es el símbolo del elemento Nitrógeno?',
+            opciones: ['N', 'Ni', 'Ne', 'Na'],
+            respuestaCorrecta: 0
+        },
+        {
+            texto: '¿Cuál es el símbolo del elemento Carbono?',
+            opciones: ['C', 'Ca', 'Co', 'Cu'],
+            respuestaCorrecta: 0
+        },
+        {
+            texto: '¿Cuál es el símbolo del elemento Helio?',
+            opciones: ['H', 'He', 'Li', 'Be'],
+            respuestaCorrecta: 1
+        },
+        {
+            texto: '¿Cuál es el símbolo del elemento Sodio?',
+            opciones: ['Na', 'S', 'So', 'Sd'],
+            respuestaCorrecta: 0
+        },
+        {
+            texto: '¿Cuál es el símbolo del elemento Magnesio?',
+            opciones: ['Mg', 'M', 'Mn', 'Mo'],
+            respuestaCorrecta: 0
+        },
+        {
+            texto: '¿Cuál es el símbolo del elemento Aluminio?',
+            opciones: ['Al', 'A', 'Am', 'Au'],
+            respuestaCorrecta: 0
+        },
+        {
+            texto: '¿Cuál es el símbolo del elemento Fósforo?',
+            opciones: ['F', 'P', 'Ph', 'S'],
+            respuestaCorrecta: 1
+        },
+        {
+            texto: '¿Cuál es el símbolo del elemento Azufre?',
+            opciones: ['As', 'Se', 'S', 'Si'],
+            respuestaCorrecta: 2
+        }
+    ];
+
+    let preguntaActual = 0;
+    let puntuacion = 0;
+
+    function cargarPregunta() {
+        const pregunta = preguntas[preguntaActual];
+        document.getElementById('pregunta').innerText = pregunta.texto;
+        const opcionesDiv = document.getElementById('opciones');
+        opcionesDiv.innerHTML = ''; // Limpiar opciones anteriores
+
+        pregunta.opciones.forEach((opcion, index) => {
+            const boton = document.createElement('button');
+            boton.innerText = opcion;
+            boton.onclick = () => seleccionarRespuesta(index);
+            opcionesDiv.appendChild(boton);
+        });
+
+        document.getElementById('resultado').innerText = '';
+        document.getElementById('siguiente').style.display = 'none';
+        document.getElementById('puntuacion').innerText = `Puntuación: ${puntuacion}`;
+    }
+
+    function seleccionarRespuesta(indice) {
+        const pregunta = preguntas[preguntaActual];
+        const resultElement = document.getElementById('resultado');
+
+        if (indice === pregunta.respuestaCorrecta) {
+            resultElement.innerText = '¡Correcto!';
+            resultElement.style.color = 'green';
+            puntuacion++;
+        } else {
+            resultElement.innerText = 'Incorrecto, intenta de nuevo.';
+            resultElement.style.color = 'red';
+        }
+        document.getElementById('siguiente').style.display = 'inline-block';
+    }
+
+    function siguientePregunta() {
+        preguntaActual++;
+        if (preguntaActual < preguntas.length) {
+            cargarPregunta();
+        } else {
+            document.querySelector('.quiz-container').innerHTML = `<h1>¡Has completado el quiz!</h1><p>Puntuación final: ${puntuacion} de ${preguntas.length}</p>`;
+        }
+    }
+
+    cargarPregunta();
+</script>
+
+</body>
+</html>

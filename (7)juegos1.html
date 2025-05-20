@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos</title>
+    <link rel="icon" href="icono de pagina de juego.png" type="image/x-icon">
+    <style>
+        /* Eliminar márgenes y padding del body */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Estilos para la cabecera */
+        .header {
+            display: flex;
+            justify-content: center;
+            background-color: #000000;
+            align-items: center;
+            padding: 10px;
+            color: rgb(230, 255, 8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 0 50px rgb(126, 11, 11);
+        }
+        
+        /* Contenido principal centrado */
+        .main-content {
+            display: flex;
+            justify-content: center;  /* Centrar horizontalmente */
+            align-items: center;      /* Centrar verticalmente */
+            height: calc(110vh - 50px); /* Ajustar la altura para evitar solaparse con el header */
+            background-color: #060544;
+        }
+
+        ul {
+            list-style-type: none; /* Eliminar puntos de la lista */
+            padding: 0;
+        }
+
+        /* Sección de imágenes centradas */
+        section {
+            display: flex;
+            justify-content: center; /* Centrar horizontalmente las imágenes */
+            gap: 20px;               /* Espacio entre las imágenes */
+        }
+
+        section img {
+            width: 100px; /* Comenzar con un tamaño pequeño */
+            flex-grow: 1;
+            object-fit: cover;
+            opacity: 0.5; /* Establecer opacidad inicial */
+            transition: all 0.3s ease-in-out; /* Transición suave */
+        }
+
+        section img:hover {
+            cursor: crosshair; /* O 'pointer' si prefieres */
+            width: 300px; /* Expandir la imagen al pasar el cursor */
+            opacity: 1; /* Totalmente opaco al pasar el cursor */
+            filter: contrast(120%);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Juegos</h1>
+    </div>
+
+    <div class="main-content">
+        <ul>
+            <section>
+                <li><a href="(j1)anyelo1.html"> <img src="rompecabeza.png" alt="Imagen 1"></a></li>
+                <li><a href="(j2)hola.html"><img src="preguntas.png" alt="Imagen 2"></a></li>
+                <li><a href="(j3)quimica1.html"><img src="quimica.png" alt="Imagen 3"></a></li>
+                <li><a href="(j4)capitales.html"><img src="pregunta.png" alt="Imagen 3"></a></li>
+                <li><a href="(0)proyecto.html"><img src="WhatsApp Image 2024-09-19 at 4.48.01 PM.jpeg" alt="Imagen 4"></a></li>
+            </section>
+        </ul>
+    </div>
+
+</body>
+</html>

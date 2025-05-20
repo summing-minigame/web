@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>creador de cuentas</title>
+<link rel="icon" href="WhatsApp Image 2024-09-19 at 4.48.01 PM.jpeg" type="image/x-icon">
+<style>
+body {
+    font-family: Arial,;
+    background-color: #ff0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f5aeae;
+    background-image: url('elfinaldetodo.jpg');
+    background-size: cover;
+    background-position: center;
+    
+}
+.login-container {
+    background-color: rgb(47, 49, 46);
+    padding: 55px;
+    border-radius: 75px;
+    box-shadow: 0 0 10px rgb(255, 0, 0);
+    width: 500px;
+    text-align: center;
+}
+.login-container h1 {
+    margin-bottom: 20px;
+}
+.login-container input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #a10606;
+    border-radius: 100px;
+}
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(2, 16, 136);
+    color: rgb(212, 175, 55);
+    border-top: 14px;
+    margin-bottom: 20px;
+    border-left: 14px;
+    border-radius: 1000px;
+    cursor: pointer;
+}
+.login-container button:hover {
+    background-color: #cf0000;
+}
+.login-container .checkbox-container {
+    text-align: left;
+    
+}
+.login-container .checkbox-container input {
+    width: auto;
+    margin-right: 5px;
+}
+.login-container .message {
+    color: red;
+    display: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1 style="color: rgb(212, 175, 55);"> crear su cuenta de summing minigames</h1> 
+        <input type="text" id="username" placeholder="username" required>   
+        <input type="text" id="username" placeholder="Gmail" required>   
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <input type="password" id="confirm-password" placeholder="Confirmar contraseña" required>
+       <div class="checkbox-container">
+       </div>
+      <button onclick="validatePasswords()"> Login</button>
+     <div class="message" id="error-message">Las contraseñas no coinciden. Por favor, inténtelo de nuevo.</div>
+    </div>
+    <script>
+        function validatePasswords() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const errorMessage = document.getElementById('error-message');
+            
+            if (password === confirmPassword) {
+                window.location.href = '(6)final de crearcionde cuenta.html';
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        }
+       
+    </script>
+</body>
+</html>         

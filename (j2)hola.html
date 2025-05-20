@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Preguntas</title>
+    <link rel="icon" href="png-transparent-quiz-computer-icons-general-knowledge-question-others-blue-game-angle-removebg-preview.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .contenedor {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .pregunta {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .opciones {
+            margin-bottom: 10px;
+        }
+        .opciones button {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .opciones button:hover {
+            background-color: #0056b3;
+        }
+        #resultado {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenedor">
+    <div id="pregunta" class="pregunta"></div>
+    <div id="opciones" class="opciones"></div>
+    <div id="resultado"></div>
+</div>
+
+<script>
+    const preguntas = [
+        {
+            pregunta: "¿Qué país es conocido como la tierra del sol naciente?",
+            opciones: ["China", "Corea del Sur", "Japón", "India"],
+            respuesta: "Japón"
+        },
+        {
+            pregunta: "¿Qué elemento químico tiene como símbolo el oro?",
+            opciones: ["Ag", "Au", "Fe", "O"],
+            respuesta: "Au"
+        },
+        {
+            pregunta: "¿Cuál es el océano más grande del mundo?",
+            opciones: ["Atlántico", "Índico", "Ártico", "Pacífico"],
+            respuesta: "Pacífico"
+        },
+        {
+            pregunta: "¿Qué número romano representa el número 50?",
+            opciones: ["L", "V", "X", "C"],
+            respuesta: "L"
+        },
+        {
+            pregunta: "¿Quién escribió 'Don Quijote de la Mancha'?",
+            opciones: ["Gabriel García Márquez", "Miguel de Cervantes", "Jorge Luis Borges", "Pablo Neruda"],
+            respuesta: "Miguel de Cervantes"
+        },
+        {
+            pregunta: "¿En qué año llegó el hombre a la Luna?",
+            opciones: ["1965", "1969", "1972", "1980"],
+            respuesta: "1969"
+        }
+    ];
+
+    let preguntaActual = 0;
+    let puntaje = 0;
+
+    function mostrarPregunta() {
+        const preguntaElemento = document.getElementById('pregunta');
+        const opcionesElemento = document.getElementById('opciones');
+        const resultadoElemento = document.getElementById('resultado');
+        resultadoElemento.innerHTML = "";
+
+        if (preguntaActual < preguntas.length) {
+            preguntaElemento.textContent = preguntas[preguntaActual].pregunta;
+            opcionesElemento.innerHTML = "";
+
+            preguntas[preguntaActual].opciones.forEach((opcion) => {
+                const boton = document.createElement('button');
+                boton.textContent = opcion;
+                boton.onclick = () => verificarRespuesta(opcion);
+                opcionesElemento.appendChild(boton);
+            });
+        } else {
+            preguntaElemento.textContent = "Juego Terminado!";
+            opcionesElemento.innerHTML = "";
+            resultadoElemento.innerHTML = `Tu puntaje final es: ${puntaje}`;
+        }
+    }
+
+    function verificarRespuesta(opcionSeleccionada) {
+        const respuestaCorrecta = preguntas[preguntaActual].respuesta;
+        const resultadoElemento = document.getElementById('resultado');
+
+        if (opcionSeleccionada === respuestaCorrecta) {
+            resultadoElemento.textContent = "¡Correcto!";
+            puntaje++;
+        } else {
+            resultadoElemento.textContent = 'Incorrecto.';
+        }
+
+        preguntaActual++;
+        setTimeout(mostrarPregunta, 1000);
+    }
+
+    mostrarPregunta();
+</script>
+
+</body>
+</html>

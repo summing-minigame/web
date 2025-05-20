@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summing Minigames</title>
+    <link rel="icon" href="WhatsApp Image 2024-09-19 at 4.48.01 PM.jpeg" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #2c2929; 
+            color: white;
+        }
+
+        /* Estilo de la cabecera */
+        .header {
+            display: flex;
+            background-color: #000000;
+            align-items: center;
+            justify-content: center; /* Centrar el título */
+            padding: 10px;
+            color: rgb(230, 255, 8);
+            position: fixed;
+            width: 100%;
+            height: 10%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 0 20px rgb(247, 0, 255);
+        }
+        .centro{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .logo {
+            position: absolute;
+            right: 20px; /* Mantener el logo a la derecha */
+            top: 10px;
+            width: 80px;
+            height: 80px;
+            background-color: #242323;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer; /* Cambiar el cursor para indicar que es clickeable */
+        }
+
+        .logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* Barra lateral */
+        .sidebar {
+            width: 100px;
+            background-color: #000000;
+            height: 100vh; /* Se ajusta a toda la altura de la ventana */
+            position: fixed;
+            top: 100px;
+            right: -200px; /* Comienza fuera de la pantalla a la derecha */
+            color: rgb(255, 72, 0);
+            padding: 10px;
+            box-sizing: border-box;
+            transition: right 0.3s ease; /* Transición suave para abrir/cerrar */
+            padding-left: 15px; /* Separación de los bordes laterales */
+        }
+
+        .sidebar.active {
+            right: 0; /* Mostrar barra lateral cuando esté activa */
+        }
+
+        .main-content {
+            margin-right: 220px; /* Ajustar margen para la barra lateral */
+            margin-top: 100px; 
+            padding: 20px;
+            box-sizing: border-box;
+            color: white;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        ul li {
+            list-style-type: none;
+            margin-bottom: 10px;
+        }
+
+        .sidebar img {
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+
+        .sidebar img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Summing Minigames</h1> 
+        <div class="logo" onclick="toggleSidebar()"> 
+            <img id="toggleImage" src="xd.png" alt="Imagen" width="100">
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <!-- Contenido de la barra lateral -->
+        <ul>
+            <li><a href="http://localhost/trabajo%20final/INICIODESESION-main/Index.php"> <img src="elfinaldetodo.jpg" alt="Imagen" width="80"></a></li>
+            <li><a href="INICIODESESION-main/Registrarse.php"><img src="IMG_20240723_145826_1_-removebg-preview.png" alt="Imagen" width="80"></a></li>
+            <li><a href="(6)final de crearcionde cuenta.html"><img src="IMG_20240725_142206-removebg-preview.png" alt="Imagen" width="80"></a></li>
+            <li><a href="(7)juegos1.html"><img src="mando-removebg-preview.png" alt="Imagen" width="110"></a></li>
+            <li><a href="(3) gestor de cuentas.php"><img src="cuentas.png" alt="Imagen" width="80"></a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <!-- Contenido principal de la página -->
+        <div style="position: absolute; left: 35%;" >
+            <div style="position: absolute; height: -50px;"></div>
+            
+            <h2>educativos que enseñan cosas para el colegio.</h2> 
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar/ocultar la barra lateral
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
